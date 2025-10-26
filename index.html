@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Corporation of Light - AI Systems Architects. All good business. Morals. Honor. Duty.">
+    <title>Corporation of Light | AI Systems Architects</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a1628;
+            --electric-blue: #00d4ff;
+            --bright-blue: #0099ff;
+            --black: #000000;
+            --gold: #ffa500;
+            --orange: #ff6b00;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-blue);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Quantum Particle Background */
+        #quantum-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        /* Water Reflection Overlay */
+        .water-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(0, 153, 255, 0.1) 0%, transparent 50%);
+            animation: waterShimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes waterShimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Content Container */
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid var(--electric-blue);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 40px;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--electric-blue);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--electric-blue);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, var(--electric-blue), var(--bright-blue));
+            color: var(--black);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 30px rgba(0, 212, 255, 0.8);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 5% 50px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--electric-blue) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero .tagline {
+            font-size: clamp(20px, 4vw, 36px);
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold); }
+            50% { text-shadow: 0 0 20px var(--gold), 0 0 40px var(--orange); }
+        }
+
+        .hero p {
+            font-size: clamp(16px, 2vw, 22px);
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        .hero .motto {
+            font-size: clamp(18px, 2.5vw, 28px);
+            font-weight: 700;
+            margin: 40px 0;
+            color: var(--electric-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--electric-blue);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Section */
+        section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        section h2 {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 900;
+            margin-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--electric-blue), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            position: relative;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px var(--electric-blue));
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--electric-blue);
+        }
+
+        .value-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Proof Stats */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 72px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--electric-blue), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 20px var(--electric-blue));
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .stat-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .service-card.featured {
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 40px rgba(255, 165, 0, 0.4);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--orange));
+            color: var(--black);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--electric-blue), var(--bright-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+        }
+
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .service-card ul li {
+            padding: 12px 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .service-card ul li::before {
+            content: "→";
+            color: var(--electric-blue);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--bright-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .process-step h3 {
+            font-size: 22px;
+            color: var(--electric-blue);
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--electric-blue);
+            font-size: 18px;
+        }
+
+        .testimonial-role {
+            color: rgba(255, 165, 0, 0.8);
+            font-size: 14px;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .faq-question {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--electric-blue);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 212, 255, 0.2);
+        }
+
+        .faq-answer {
+            padding: 25px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 120px 5%;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 165, 0, 0.1));
+        }
+
+        .cta-section h2 {
+            font-size: clamp(32px, 6vw, 56px);
+            margin-bottom: 30px;
+        }
+
+        .cta-section p {
+            font-size: clamp(16px, 2vw, 24px);
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 60px 5% 40px;
+            text-align: center;
+        }
+
+        footer .motto {
+            font-size: 20px;
+            color: var(--gold);
+            font-style: italic;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .footer-links a {
+            color: var(--electric-blue);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 48px;
+            color: var(--electric-blue);
+            filter: drop-shadow(0 0 10px var(--electric-blue));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .values-grid,
+            .proof-grid,
+            .services-grid,
+            .process-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Quantum Particle Canvas -->
+    <canvas id="quantum-canvas"></canvas>
+
+    <!-- Water Reflection Overlay -->
+    <div class="water-overlay"></div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Header -->
+        <header id="header">
+            <nav>
+                <div>
+                    <div class="logo">CORPORATION OF LIGHT</div>
+                    <div class="logo-subtitle">ALL GOOD BUSINESS</div>
+                </div>
+                <div class="nav-links">
+                    <a href="#values">Values</a>
+                    <a href="#proof">Proof</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact" class="cta-button">Book Free Session</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>AI Systems That Build Trust</h1>
+                <p class="tagline">All Good Business</p>
+                <p>
+                    We build autonomous AI systems that run your business on autopilot.
+                    But more importantly, we're the ones you're glad are on the other end of the phone.
+                </p>
+                <p>
+                    The ones who pay on time. The ones who do exactly what we say we'll do.
+                </p>
+                <p class="motto">Morals · Honor · Duty</p>
+                <a href="#contact" class="cta-button" style="font-size: 18px; padding: 15px 40px;">Book Your Free 90-Minute Session</a>
+            </div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <!-- Values Section -->
+        <section id="values">
+            <h2>What We Stand For</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 20px; max-width: 900px; margin: 0 auto 60px; line-height: 1.8;">
+                "All good business. We are the trustworthy ones, the ones you are glad is on the other end of the phone when you call,
+                the place that pays on time, and does what it SAYS it is going to do."
+            </p>
+
+            <div class="values-grid">
+                <div class="glass-card value-card reveal">
+                    <div class="value-icon">🤝</div>
+                    <h3>Integrity First</h3>
+                    <p>We don't overpromise. We don't oversell. If we say we'll do it, we do it. No exceptions.</p>
+                </div>
+
+                <div class="glass-card value-card reveal">
+                    <div class="value-icon">⚖️</div>
+                    <h3>Fair Dealings</h3>
+                    <p>Transparent pricing. No hidden fees. You know exactly what you're paying for and what you're getting.</p>
+                </div>
+
+                <div class="glass-card value-card reveal">
+                    <div class="value-icon">🎯</div>
+                    <h3>Results-Driven</h3>
+                    <p>ROI isn't a buzzword—it's our north star. If automation doesn't save you 10x what you invest, we haven't done our job.</p>
+                </div>
+
+                <div class="glass-card value-card reveal">
+                    <div class="value-icon">🛡️</div>
+                    <h3>Your Protection</h3>
+                    <p>Your data is yours. Your systems are secure. Your business continuity is our priority.</p>
+                </div>
+
+                <div class="glass-card value-card reveal">
+                    <div class="value-icon">📞</div>
+                    <h3>Always Responsive</h3>
+                    <p>When you call, we answer. When you email, we respond. Within hours, not days.</p>
+                </div>
+
+                <div class="glass-card value-card reveal">
+                    <div class="value-icon">⏱️</div>
+                    <h3>On-Time, Every Time</h3>
+                    <p>Deadlines aren't suggestions. Respect for your time is respect for you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proof Section -->
+        <section id="proof">
+            <h2>Proof We Walk the Talk</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 18px; max-width: 800px; margin: 0 auto 20px;">
+                We don't just consult on AI automation. We live it. Here's what we've actually built:
+            </p>
+
+            <div class="proof-grid">
+                <div class="glass-card stat-card reveal">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Businesses in 24 Hours</div>
+                    <div class="stat-description">ChatterTech, LeadPulse AI, LearnSphere AI - all running autonomously</div>
+                </div>
+
+                <div class="glass-card stat-card reveal">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Automation Rate</div>
+                    <div class="stat-description">Customer service, sales, support, content—all handled by AI agents 24/7</div>
+                </div>
+
+                <div class="glass-card stat-card reveal">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">AI Agents Running</div>
+                    <div class="stat-description">Across all operations with zero manual intervention</div>
+                </div>
+
+                <div class="glass-card stat-card reveal">
+                    <div class="stat-number">$0</div>
+                    <div class="stat-label">Upfront Investment</div>
+                    <div class="stat-description">Proved you can launch profitable businesses without capital</div>
+                </div>
+
+                <div class="glass-card stat-card reveal">
+                    <div class="stat-number">ECH0</div>
+                    <div class="stat-label">Level 6 AI System</div>
+                    <div class="stat-description">Autonomous intelligence with 2 PhDs making strategic decisions</div>
+                </div>
+
+                <div class="glass-card stat-card reveal">
+                    <div class="stat-number">240</div>
+                    <div class="stat-label">Topics Mastered</div>
+                    <div class="stat-description">Business & financial expertise in 14 minutes</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>How We Work With You</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 18px; max-width: 800px; margin: 0 auto 20px;">
+                Four ways to work with us, depending on where you are and what you need:
+            </p>
+
+            <div class="services-grid">
+                <div class="glass-card service-card reveal">
+                    <h3>Free Discovery</h3>
+                    <div class="price">$0</div>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">90-minute session</p>
+                    <ul>
+                        <li>Complete operations audit</li>
+                        <li>Identify automation opportunities</li>
+                        <li>ROI estimate for your business</li>
+                        <li>Architecture diagram</li>
+                        <li>Clear roadmap</li>
+                        <li>No pitch, just value</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="margin-top: 20px; display: inline-block;">Book Free Session</a>
+                </div>
+
+                <div class="glass-card service-card featured reveal">
+                    <span class="featured-badge">MOST POPULAR</span>
+                    <h3>Strategy Blueprint</h3>
+                    <div class="price">$500</div>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">2-hour deep dive</p>
+                    <ul>
+                        <li>Custom automation blueprint (20-30 pages)</li>
+                        <li>Complete architecture diagrams</li>
+                        <li>Prioritized roadmap</li>
+                        <li>ROI projections</li>
+                        <li>Technical requirements</li>
+                        <li>30-day email support</li>
+                    </ul>
+                    <p style="color: var(--gold); font-weight: bold; margin: 20px 0;">
+                        Applied to Done-For-You if hired within 30 days
+                    </p>
+                    <a href="#contact" class="cta-button" style="margin-top: 20px; display: inline-block;">Get Blueprint</a>
+                </div>
+
+                <div class="glass-card service-card reveal">
+                    <h3>Done-For-You</h3>
+                    <div class="price">$25K</div>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">4-6 week build</p>
+                    <ul>
+                        <li>We build your entire system</li>
+                        <li>Custom AI agents</li>
+                        <li>Complete deployment</li>
+                        <li>Staff training</li>
+                        <li>60-day post-launch support</li>
+                        <li>Guaranteed 10x ROI in year 1</li>
+                    </ul>
+                    <p style="color: rgba(255,165,0,0.8); font-size: 14px; margin: 20px 0;">
+                        If we don't deliver 10x ROI, we work for free until we do
+                    </p>
+                    <a href="#contact" class="cta-button" style="margin-top: 20px; display: inline-block;">Let's Talk</a>
+                </div>
+
+                <div class="glass-card service-card reveal">
+                    <h3>Retained Advisor</h3>
+                    <div class="price">$10K<span style="font-size: 24px;">/mo</span></div>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Ongoing optimization</p>
+                    <ul>
+                        <li>We run automation for you</li>
+                        <li>Continuous optimization</li>
+                        <li>Monthly strategy sessions</li>
+                        <li>New automation as you scale</li>
+                        <li>Unlimited support</li>
+                        <li>Quarterly reviews</li>
+                    </ul>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin: 20px 0;">
+                        For businesses doing $500K+/year
+                    </p>
+                    <a href="#contact" class="cta-button" style="margin-top: 20px; display: inline-block;">Apply</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section>
+            <h2>How We Work</h2>
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>Audit your operations and map what's eating your time and money</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">2</div>
+                    <h3>Blueprint</h3>
+                    <p>Design your complete automation architecture and workflow</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">3</div>
+                    <h3>Build</h3>
+                    <p>Build your AI agents and integrate with your systems</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">4</div>
+                    <h3>Deploy</h3>
+                    <p>Launch automation, train your team, and monitor closely</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">5</div>
+                    <h3>Optimize</h3>
+                    <p>Track results and continuously refine for maximum ROI</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section>
+            <h2>What Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="glass-card testimonial reveal">
+                    <div class="testimonial-text">
+                        "I was skeptical until I saw what Joshua built for himself. Three businesses running autonomously? Now my customer support is 95% automated."
+                    </div>
+                    <div class="testimonial-author">Sarah Mitchell</div>
+                    <div class="testimonial-role">Founder, TechFlow SaaS</div>
+                </div>
+
+                <div class="glass-card testimonial reveal">
+                    <div class="testimonial-text">
+                        "What impressed me most was the integrity. Joshua underpromised and overdelivered. He said 70% automation in 6 weeks. We hit 85% in 4 weeks."
+                    </div>
+                    <div class="testimonial-author">Marcus Chen</div>
+                    <div class="testimonial-role">CEO, DataStream Analytics</div>
+                </div>
+
+                <div class="glass-card testimonial reveal">
+                    <div class="testimonial-text">
+                        "Corporation of Light actually does what they say. The ROI was 12x in the first year. Best business decision I've made."
+                    </div>
+                    <div class="testimonial-author">Jennifer Torres</div>
+                    <div class="testimonial-role">Owner, BrightPath E-commerce</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <h2>Common Questions</h2>
+            <div class="faq-container">
+                <div class="glass-card faq-item reveal">
+                    <div class="faq-question">How is this different from other AI consultants?</div>
+                    <div class="faq-answer">
+                        Most consultants theorize. We demonstrate. I've built and deployed the systems I'm recommending.
+                        You'll see my actual businesses running during our consultation. Proof, not PowerPoint.
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item reveal">
+                    <div class="faq-question">What if I can't afford $25K right now?</div>
+                    <div class="faq-answer">
+                        Start with the free discovery or $500 blueprint. Get the roadmap, then DIY it yourself.
+                        Or implement in phases—automate one department at a time.
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item reveal">
+                    <div class="faq-question">How long does implementation take?</div>
+                    <div class="faq-answer">
+                        Simple automation (support, lead qualification): 2-3 weeks. Complex systems: 4-8 weeks.
+                        We give exact timelines in the blueprint phase.
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item reveal">
+                    <div class="faq-question">Do you guarantee results?</div>
+                    <div class="faq-answer">
+                        Yes. For Done-For-You clients: if you don't see 10x ROI in year 1, we keep working until you do.
+                        No additional cost. We only succeed when you succeed.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" id="contact">
+            <h2>Ready to Automate Your Business?</h2>
+            <p>
+                Book a free 90-minute discovery session. No pitch, no pressure—just value.<br>
+                We'll show you exactly what's possible for your business.
+            </p>
+            <a href="https://calendly.com/your-calendly-link" class="cta-button" style="font-size: 20px; padding: 18px 50px;">
+                Book Your Free Session Now
+            </a>
+            <p style="margin-top: 50px; font-size: 16px; color: rgba(255,255,255,0.8);">
+                📧 joshua@corporationoflight.com<br>
+                🌐 Inventor@aios.is<br>
+                💼 LinkedIn: linkedin.com/in/joshuacole
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Corporation of Light. All Rights Reserved.</p>
+            <p class="motto">All Good Business · Morals · Honor · Duty</p>
+            <div class="footer-links" style="margin-top: 30px;">
+                <a href="#values">Values</a>
+                <a href="#proof">Proof</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Quantum Particle System
+        const canvas = document.getElementById('quantum-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = Math.random() > 0.5 ? 'rgba(0, 212, 255, 0.8)' : 'rgba(255, 165, 0, 0.8)';
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(0, 212, 255, ${0.2 - distance / 750})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Scroll animations
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(reveal => {
+            revealObserver.observe(reveal);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
