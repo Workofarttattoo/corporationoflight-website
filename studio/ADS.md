@@ -63,6 +63,46 @@ Web: one responsive static page, up to five agreed content sections, approved as
 
 Media: one 10–15 second motion-graphics asset OR three static promotional designs; one agreed format; client-approved text/brand assets; one consolidated revision. Live-action filming, custom voice talent, licensed music, and advanced character animation are not included by default.
 
+## Contra service drafts — not published
+
+Use “Contact for pricing” until a brief is reviewed. Keep inquiries and payments on Contra if these services are published there.
+
+### Python workflow automation
+
+**Service name:** I will build a focused Python automation for your repetitive workflow
+
+I build practical Python tools for repetitive file and data tasks, including CSV cleanup, validation, deduplication, report generation and batch processing. We define the input, expected output, operating environment and acceptance checks before work begins. Delivery includes the agreed source code, run instructions and a tested example using redacted data.
+
+Sample: https://workofarttattoo.github.io/corporationoflight-website/studio/demos/csv-cleaner.html
+
+Requirements: goal, redacted sample input, expected output, operating system, budget range and target date. Never provide passwords or confidential customer data.
+
+Suggested tags: Python, Automation, Data Processing.
+
+### Responsive landing page
+
+**Service name:** I will design and build a responsive landing page for your offer
+
+I create focused landing pages for businesses, products and creative projects. We agree on the audience, page goal, sections, approved copy and assets, revisions, hosting plan and acceptance checks before production. Delivery includes responsive source files and practical handoff instructions.
+
+Sample: https://workofarttattoo.github.io/corporationoflight-website/studio/demos/field-notes.html
+
+Requirements: page goal, audience, preferred style, approved copy/assets, required links, budget range and target date.
+
+Suggested tags: Web Design, Landing Page Design, Responsive Design.
+
+### Short promotional motion graphic
+
+**Service name:** I will create a short branded motion graphic for your promotion
+
+I create focused 10–15 second promotional motion graphics using client-approved copy and brand assets. We agree on the audience, platform, dimensions, duration, call to action, revision round and acceptance checks before production.
+
+Sample: https://workofarttattoo.github.io/corporationoflight-website/studio/assets/studio-motion.mp4
+
+Requirements: offer, audience, posting platform, dimensions, approved text/assets, budget range and target date. Licensed music, custom voice talent, filming and advanced character animation are separate scope.
+
+Suggested tags: Motion Design, Social Media Design, Advertising.
+
 ## Suggested human posting sequence
 
 1. Post the coding ad and working demo to your own professional/social profile.
