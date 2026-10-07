@@ -112,3 +112,17 @@ Suggested tags: Motion Design, Social Media Design, Advertising.
 5. Log the actual post URL and date; never count a prepared draft as a placement.
 
 No paid promotion, fabricated reviews, customer claims, or guaranteed outcomes.
+
+
+## Nextdoor local business post — prepared, not published
+
+Las Vegas business owners: if your website is outdated, hard to use on a phone, or missing a clear call to action, Corporation of Light Studio can build a focused responsive landing page for your business, product or event.
+
+We define the page goal, audience, content, approved assets, features, revision round and hosting plan before work begins. Delivery includes the agreed responsive source files and practical handoff instructions.
+
+View the live Field Notes design concept:
+https://workofarttattoo.github.io/corporationoflight-website/studio/demos/field-notes.html
+
+Email thewhiteknight702@gmail.com with “COL Studio — Website” and include your business goal, current website if applicable, preferred style, budget range and target date.
+
+Post once from an authorized local profile, follow current neighborhood and business-promotion rules, and retain the public post URL before counting it as a placement.
